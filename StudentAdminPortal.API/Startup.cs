@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -30,19 +31,19 @@ namespace StudentAdminPortal.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors((options) =>
+            {
+                options.AddPolicy("angularApplication", (builder) =>
                 {
-                    options.AddPolicy("angularApplication", (builder) =>
-                    {
-                        builder.WithOrigins("http://localhost:4200")
-                        .AllowAnyHeader()
-                        .WithMethods("GET", "POST", "DELETE", "PUT")
-                        .WithExposedHeaders("*");
-                    }); 
+                    builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .WithMethods(HttpMethods.Get, HttpMethods.Post, HttpMethods.Put, HttpMethods.Delete)
+                    .WithExposedHeaders("*");
                 });
+            });
 
             services.AddControllers();
             services.AddDbContext<StudentAdminContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("StudentAdminPortalDb")));
+                options.UseSqlServer(Configuration.GetConnectionString("StudentAdminPortalDb")));
 
             services.AddScoped<IStudentRepository, SqlStudentRepository>();
 
