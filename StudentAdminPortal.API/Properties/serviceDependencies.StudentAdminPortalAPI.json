@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "apis1": {
+      "ignored": "true",
+      "type": "apis.azure"
+    },
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/studentadminportal-apidbserver/databases/StudentAdminPortal.API_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:StudentAdminPortalDb",
+      "dynamicId": null
+    }
+  }
+}

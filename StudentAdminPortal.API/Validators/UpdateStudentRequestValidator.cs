@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace StudentAdminPortal.API.Validators
 {
-    public class UpdateStudentRequestValidator : AbstractValidator<UpdateStudentRequest>
+    public class UpdateStudentRequestValidator: AbstractValidator<UpdateStudentRequest>
     {
         public UpdateStudentRequestValidator(IStudentRepository studentRepository)
         {

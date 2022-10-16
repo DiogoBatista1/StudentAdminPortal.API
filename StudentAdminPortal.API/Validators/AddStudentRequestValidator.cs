@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentAdminPortal.API.Validators
 {
-    public class AddStudentRequestValidator : AbstractValidator<AddStudentRequest>
+    public class AddStudentRequestValidator: AbstractValidator<AddStudentRequest>
     {
         public AddStudentRequestValidator(IStudentRepository studentRepository)
         {

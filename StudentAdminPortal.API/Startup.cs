@@ -9,7 +9,6 @@ using Microsoft.OpenApi.Models;
 using StudentAdminPortal.API.DataModels;
 using StudentAdminPortal.API.Repositories;
 using System.IO;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 
 namespace StudentAdminPortal.API
